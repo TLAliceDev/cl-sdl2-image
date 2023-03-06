@@ -15,6 +15,9 @@
 (defun load-image (filename)
   (check-null (img-load (namestring (merge-pathnames filename)))))
 
+(defun load-image-texture (filename)
+  (check-null (img-load-texture (namestring (merge-pathnames filename)))))
+
 (defmacro load-from-rw-wrapper (file-specifier load-macro)
   `(let ((rwops-object (sdl2:rw-from-file (namestring ,file-specifier) "rb")))
      (unwind-protect (check-null ,load-macro)
